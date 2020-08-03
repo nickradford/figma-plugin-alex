@@ -9,11 +9,13 @@
   "license": "MIT",
   "author": "Nick Radford",
   "dependencies": {
-    "@create-figma-plugin/utilities": "*"
+    "@create-figma-plugin/utilities": "*",
+    "alex": "^8.2.0"
   },
   "devDependencies": {
     "@create-figma-plugin/build": "*",
-    "@figma/plugin-typings": "*"
+    "@figma/plugin-typings": "*",
+    "@types/alex": "^8.1.0"
   },
   "scripts": {
     "build": "build-figma-plugin",
