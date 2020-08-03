@@ -1,0 +1,27 @@
+{
+  "name": "figma-plugin-alex",
+  "version": "1.0.0",
+  "keywords": [
+    "create-figma-plugin",
+    "figma",
+    "figma-plugin"
+  ],
+  "license": "MIT",
+  "author": "Nick Radford",
+  "dependencies": {
+    "@create-figma-plugin/utilities": "*"
+  },
+  "devDependencies": {
+    "@create-figma-plugin/build": "*",
+    "@figma/plugin-typings": "*"
+  },
+  "scripts": {
+    "build": "build-figma-plugin",
+    "watch": "build-figma-plugin --watch"
+  },
+  "figma-plugin": {
+    "id": "figma-plugin-alex",
+    "name": "Plugin Alex",
+    "main": "src/main.ts"
+  }
+}
