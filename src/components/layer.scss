@@ -1,0 +1,20 @@
+.layer {
+  display: flex;
+  border: 1px solid transparent;
+  // align-items: center;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.layer:hover {
+  background: #eee;
+}
+
+.layer svg {
+  fill: #aaa;
+  margin-right: 8px;
+}
+
+.layer > div {
+  padding-top: 3px;
+}

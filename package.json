@@ -9,8 +9,10 @@
   "license": "MIT",
   "author": "Nick Radford",
   "dependencies": {
+    "@create-figma-plugin/ui": "0.0.74",
     "@create-figma-plugin/utilities": "*",
-    "alex": "^8.2.0"
+    "alex": "^8.2.0",
+    "preact": "^10.4.6"
   },
   "devDependencies": {
     "@create-figma-plugin/build": "*",
@@ -22,8 +24,9 @@
     "watch": "build-figma-plugin --watch"
   },
   "figma-plugin": {
-    "id": "figma-plugin-alex",
-    "name": "Plugin Alex",
-    "main": "src/main.ts"
+    "id": "872001708828653182",
+    "name": "alex - catch insensitive, inconsiderate writing",
+    "main": "src/main.ts",
+    "ui": "src/ui.tsx"
   }
 }
