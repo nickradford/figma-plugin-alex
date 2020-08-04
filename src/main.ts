@@ -14,7 +14,7 @@ export default function () {
   });
 
   on("FIX_ISSUE", async ({ id, messageIndex, replacementValue }) => {
-    console.log("fixing issue in main");
+    // console.log("fixing issue in main");
 
     const node = getNodeById<TextNode>(id);
     const nodeData = data.find((node) => node.nodeId === id).alexData;
@@ -50,6 +50,11 @@ export default function () {
     emit("DATA_RESCAN", { data });
   });
 
+  on("RESCAN", () => {
+    data = scanForData();
+    emit("DATA_RESCAN", { data });
+  });
+
   on("FIX_ALL_ISSUES", async ({ id }) => {
     const nodeData = data.find((node) => node.nodeId === id).alexData;
     const figmaNode = getNodeById<TextNode>(id);
@@ -63,10 +68,10 @@ export default function () {
         typeof message.actual === "string" &&
         message.expected[0] !== undefined
       ) {
-        console.log(`Replacing ${message.actual} with ${message.expected[0]}`);
+        // console.log(`Replacing ${message.actual} with ${message.expected[0]}`);
         const regex = new RegExp(`\\b${message.actual}\\b`, "gi");
         characters = characters.replace(regex, message.expected[0]);
-        console.log(regex, message.expected[0]);
+        // console.log(regex, message.expected[0]);
       }
     });
 

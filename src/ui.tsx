@@ -12,17 +12,18 @@ import { useState, useEffect } from "preact/hooks";
 import { LayerText } from "./icons/layer-text";
 import { Layer, LayerLabel, LayerBadges } from "./components/layer";
 import { emit, on } from "@create-figma-plugin/utilities";
+import { RescanButton } from "./components/rescan-button";
 
 export default render(Plugin);
 
 function Plugin(props) {
   const [selectedLayer, setSelectedLayer] = useState(null);
   const [alexData, setAlexData] = useState(props.data);
-  console.log(props);
+  // console.log(props);
 
   useEffect(() => {
     on("DATA_RESCAN", ({ data }) => {
-      console.log("new data", data);
+      // console.log("new data", data);
       setAlexData(data);
     });
   }, []);
@@ -52,6 +53,11 @@ function Plugin(props) {
         </Layer>
       ))}
       <VerticalSpace space="medium" />
+      <RescanButton
+        onClick={() => {
+          emit("RESCAN");
+        }}
+      />
     </div>
   );
 }
