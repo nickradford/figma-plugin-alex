@@ -1,21 +1,70 @@
 /** @jsx h */
 
 import { h, JSX } from "preact";
+import {
+  Text,
+  Container,
+  Divider,
+  Stack,
+  VerticalSpace,
+  Button,
+} from "@create-figma-plugin/ui";
+import cn from "classnames";
 
 import styles from "./layer.scss";
-import { Text } from "@create-figma-plugin/ui";
 
 interface LayerProps {
   icon: JSX.Element;
 }
 
 const Layer = (props) => {
-  return (
-    <div className={styles.layer} onClick={props.onClick}>
+  const classes = cn(styles.layer, { [styles.selected]: props.selected });
+  return [
+    <div className={classes} onClick={props.onClick}>
       {props.icon}
-      <Text>{props.children}</Text>
-    </div>
-  );
+      <div className={styles.main}>{props.children}</div>
+    </div>,
+    props.selected && props.messages.length
+      ? [
+          <VerticalSpace space="medium" />,
+          <Container space="extraLarge">
+            <Stack space="medium">
+              {props.messages.map((message, index) => {
+                return (
+                  <div className={styles.flexSpread}>
+                    <Text>{message.message}</Text>
+                    {message.expected.length ? (
+                      <button onClick={() => props.fixIssue(index)}>fix</button>
+                    ) : null}
+                  </div>
+                );
+              })}
+            </Stack>
+          </Container>,
+          <VerticalSpace space="medium" />,
+          // <div className={styles.flexRight}>
+          //   <Button onClick={props.fixIssues}>Fix issues</Button>
+          // </div>,
+          // <VerticalSpace space="medium" />,
+        ]
+      : null,
+    ,
+    <Divider />,
+  ];
 };
 
-export default Layer;
+const LayerLabel = (props) => {
+  return <Text>{props.children}</Text>;
+};
+
+const LayerBadges = (props) => {
+  let label = "No issues found";
+  if (props.for.length) {
+    label = `Found ${props.for.length} potential ${
+      props.for.length > 1 ? "issues" : "issue"
+    }`;
+  }
+  return <Text bold={!!props.for.length}>{label}</Text>;
+};
+
+export { Layer, LayerLabel, LayerBadges };

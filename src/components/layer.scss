@@ -1,11 +1,12 @@
 .layer {
   display: flex;
   border: 1px solid transparent;
-  // align-items: center;
+  align-items: center;
   padding: 6px 10px;
   cursor: pointer;
 }
 
+.layer.selected,
 .layer:hover {
   background: #eee;
 }
@@ -13,8 +14,52 @@
 .layer svg {
   fill: #aaa;
   margin-right: 8px;
+  padding-top: 4px;
 }
 
 .layer > div {
-  padding-top: 3px;
+  padding-top: 2px;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  align-items: center;
+  cursor: pointer;
+}
+
+.flexRight {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 1em;
+}
+
+.flexRight button {
+  cursor: pointer;
+}
+
+.flexSpread {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  font-size: 13px;
+}
+
+.flexSpread button {
+  border: 0;
+  color: blue;
+  background: none;
+
+  font-weight: 400;
+  font-size: 13px;
+  font-family: "Inter", "Helvetica", sans-serif;
+  line-height: 16px;
+
+  &:hover {
+    color: darken($color: blue, $amount: 25);
+    cursor: pointer;
+  }
 }

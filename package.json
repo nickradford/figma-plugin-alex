@@ -12,12 +12,14 @@
     "@create-figma-plugin/ui": "0.0.74",
     "@create-figma-plugin/utilities": "*",
     "alex": "^8.2.0",
+    "classnames": "^2.2.6",
     "preact": "^10.4.6"
   },
   "devDependencies": {
     "@create-figma-plugin/build": "*",
     "@figma/plugin-typings": "*",
-    "@types/alex": "^8.1.0"
+    "@types/alex": "^8.1.0",
+    "@types/classnames": "^2.2.10"
   },
   "scripts": {
     "build": "build-figma-plugin",

@@ -1,6 +1,10 @@
 declare namespace LayerScssNamespace {
   export interface ILayerScss {
+    flexRight: string;
+    flexSpread: string;
     layer: string;
+    main: string;
+    selected: string;
   }
 }
 
